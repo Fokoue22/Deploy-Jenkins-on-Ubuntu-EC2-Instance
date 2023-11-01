@@ -6,7 +6,7 @@ This repository will contain all jenkins project on AWS
 You first need to install jenkins by following the steps below or by going the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
 
 ## Environment variable
-In steps 1 `INSTALL JAVA SDK` 
+`In steps 1` `INSTALL JAVA SDK` 
 1. We first need to update the OS
 ```
 sudo apt update
@@ -18,7 +18,7 @@ sudo apt install fontconfig openjdk-17-jre -y
 
 ```
 
-In steps 2 `ADD JENKINS TO DEBIAN REPO`
+`In steps 2`  `ADD JENKINS TO DEBIAN REPO`
 1. We do this by using the Long term support release 
 ```
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -31,7 +31,7 @@ sudo apt install fontconfig openjdk-17-jre -y
 
 ```
 
-In steps 3 `INSTALL JENKINS`
+`In steps 3` `INSTALL JENKINS`
 1. We first update the libriaries 
 ```
 sudo apt-get update
