@@ -42,9 +42,9 @@ sudo apt-get update
 sudo apt-get install jenkins -y
 
 ```
-2. Then we start jenkins   
+2. This command will check if jenkins has been install and working `DON'T FORGET TO COPY AND SAVE THE ADMIN PASSWORD` It may also be found  `/var/lib/jenkins/secrets/initialAdminPassword`
 ```
-sudo systemctl start jenkins
+sudo systemctl status jenkins
 
 ```
 
