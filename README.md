@@ -51,7 +51,7 @@ sudo systemctl status jenkins
 ```
 4. start jenkins `enable` allow you to state the service automatically when the system bot up or when you bot up the system 
 ```
-sudo systemcl enable jenkins
+sudo systemctl enable jenkins
 
 ```
 
@@ -68,7 +68,7 @@ sudo ufw allow 8080
 ```
 3. Then we may also need to open SSH   
 ```
-sudo ufw allow OPENSSH
+sudo ufw allow openSSH
 
 ```
 
