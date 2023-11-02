@@ -64,31 +64,11 @@ sudo ufw enable -y
 sudo ufw allow 8080
 
 ```
-3. Then we allow port `8080`. This will allowed all incomming requese coming from this port  
-```
-sudo ufw allow 8080
-
-```
-4. Then we may also need to open SSH   
+3. Then we may also need to open SSH   
 ```
 sudo ufw allow OPENSSH
 
 ```
-
-Both `buildspec.yml` and `deployspec.yml` files are run in CodeBuild projects. Read [this page](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html) for more information about the syntax to use.
-
-*Important note:* in steps 2 and 5 you need to add `deployspec.yml` in `artifacts.files` section of the `buildspec.yml` among other output files in order for deployments to function.
-
-```
-artifacts:
-  files:
-    - ....
-    - deployspec.yml
-```
-
-## CodeBuild role
-
-If you need to perofm an action in your build or deployment phase which requires particular permissions you can add a [policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html) to the IAM role used by the CodeBuild projects. The role ARN is exported with this name: `${AWS::StackName}CodeBuildRoleArn`.
 
 ## Author
 FOKOUE THOMAS 

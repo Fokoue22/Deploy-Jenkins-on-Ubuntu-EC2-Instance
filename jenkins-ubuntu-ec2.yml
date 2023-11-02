@@ -25,7 +25,7 @@ Parameters:
   LatestLinuxAmiId:
     Description: Fectching ubuntu AMI from parameter store.
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+    Default: '/aws/service/canonical/ubuntu/server/bionic/stable/current/amd64/hvm/ebs-gp2/ami-id'
   SSHLocation:
     Description: The IP address range that can be used to SSH to the EC2 instances
     Type: String
@@ -92,19 +92,19 @@ Resources:
             commands:
               01-installing-java:
                 command: !Sub |
-                  apt-get install -y openjdk-8-jdk openjdk-8-jdk-headless
+                  sudo apt install fontconfig openjdk-17-jre -y 
               02-add-repo-key-to-sys:
                 command: !Sub |
-                  wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+                  sudo wget -O /usr/share/keyrings/jenkins-keyring.asc | https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
               03-add-entry-jenkins-list:
                 command: !Sub |
-                  sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+                  echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] | http://pkg.jenkins.io/debian-stable binary/ | sudo tee | /etc/apt/sources.list.d/jenkins.list > /dev/null
               04-update-package:
                 command: !Sub |
-                  apt-get update -y
+                  sudo apt-get update -y
               05-install-jenkins:
                 command: !Sub |
-                  apt-get install -y jenkins
+                  sudo pt-get install -y jenkins
               06-retrieve-admin-password:
                 command: !Sub |
                   cat /var/lib/jenkins/secrets/initialAdminPassword
