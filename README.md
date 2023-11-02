@@ -42,12 +42,38 @@ sudo apt-get update
 sudo apt-get install jenkins -y
 
 ```
-2. This command will check if jenkins has been install and working `DON'T FORGET TO COPY AND SAVE THE ADMIN PASSWORD` It may also be found  `/var/lib/jenkins/secrets/initialAdminPassword`
+3. This command will check if jenkins has been install and working `DON'T FORGET TO COPY AND SAVE THE ADMIN PASSWORD` It may also be found  `/var/lib/jenkins/secrets/initialAdminPassword`
 ```
 sudo systemctl status jenkins
 
 ```
+4. start jenkins `enable` allow you to state the service automatically when the system bot up or when you bot up the system 
+```
+sudo systemcl enable jenkins
 
+```
+
+`In steps 3` `ENABLE PORT 8080 ON HOST FIREWALL`
+1. We first update the libriaries. `ufw` this is a virtual firewall on ubuntu instance 
+```
+sudo ufw enable -y
+
+```
+2. Then we allow port `8080`. This will allowed all incomming requese coming from this port. We do this because by default http run on port 80 while jenkins on port 8080. So we must always indicate the port of jenkins if not it will not work   
+```
+sudo ufw allow 8080
+
+```
+3. Then we allow port `8080`. This will allowed all incomming requese coming from this port  
+```
+sudo ufw allow 8080
+
+```
+4. Then we may also need to open SSH   
+```
+sudo ufw allow OPENSSH
+
+```
 
 Both `buildspec.yml` and `deployspec.yml` files are run in CodeBuild projects. Read [this page](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html) for more information about the syntax to use.
 
