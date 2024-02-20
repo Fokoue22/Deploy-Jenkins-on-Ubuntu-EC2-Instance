@@ -5,6 +5,8 @@ This repository will contain all jenkins project on AWS
 ## Deploy Jenkin in ubuntu ec2 instance 
 We first need to create and ec2 instance on AWS. The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
 
+## `NB` In case we are working with Linux-ec2-instance we change the package manager of ubuntu `apt` to linux `yum`.
+ 
 ## Environment variable
 ### `In steps 1` `INSTALL JAVA SDK` 
 1. We first need to update the OS
