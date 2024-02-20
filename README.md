@@ -17,7 +17,11 @@ sudo apt update
 sudo apt install java-17-amazon-corretto-devel -y
 
 ```
+3. Verified of the java package was succesfully install 
+```
+java -version
 
+```
 ### `In steps 2`  `ADD JENKINS TO DEBIAN REPO`
 1. We do this by using the Long term support release 
 ```
