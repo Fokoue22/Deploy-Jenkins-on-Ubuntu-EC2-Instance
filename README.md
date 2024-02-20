@@ -6,7 +6,7 @@ This repository will contain all jenkins project on AWS
 We first need to create and ec2 instance on AWS. The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
 
 ## `NB` In case we are working with Linux-ec2-instance we change the package manager of ubuntu `apt` to linux `yum`.
- 
+
 ## Environment variable
 ### `In steps 1` `INSTALL JAVA SDK` 
 1. We first need to update the OS
@@ -38,7 +38,17 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 ```
-
+### `In steps 2`  `ADD JENKINS TO Red Hat package.`
+1. Install Jenkins on an Amazon Linux 2 AMI EC2 instance using the [official guide](https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos).
+```
+sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
+```
+```
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+```
+```
+sudo yum install jenkins
+```
 ### `In steps 3` `INSTALL JENKINS`
 1. We first update the libriaries 
 ```
