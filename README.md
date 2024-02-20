@@ -14,7 +14,7 @@ sudo apt update
 ```
 2. Then we install java package 
 ```
-sudo apt install fontconfig openjdk-17-jre -y
+sudo apt install java-17-amazon-corretto-devel -y
 
 ```
 
