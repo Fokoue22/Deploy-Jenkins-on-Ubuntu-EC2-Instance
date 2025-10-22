@@ -1,5 +1,8 @@
-# JENKINS-AWS
+# Deploy-Jenkins-on-Ubuntu-EC2-Instance
 This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS and configure it to automate a CI/CD pipeline integrating GitHub, Maven, and Apache Web Server.
+
+### 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
+![Alt text](images/jenkins-architecture.gif)
 
 The pipeline fetches source code from GitHub, builds the application using Maven, and deploys it automatically to an Apache web server accessible over the Internet. This setup simulates a real-world DevOps pipeline for continuous integration and delivery using Jenkins.
 
