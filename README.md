@@ -1,14 +1,33 @@
 # JENKINS-AWS
-This repository will contain all jenkins project on AWS 
+This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS and configure it to automate a CI/CD pipeline integrating GitHub, Maven, and Apache Web Server.
+
+The pipeline fetches source code from GitHub, builds the application using Maven, and deploys it automatically to an Apache web server accessible over the Internet. This setup simulates a real-world DevOps pipeline for continuous integration and delivery using Jenkins.
 
 
-## Deploy Jenkin in ubuntu ec2 instance 
-We first need to create and ec2 instance on AWS. The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
+## ⚙️ Architecture Summary
 
-## `NB` In case we are working with Linux-ec2-instance we change the package manager of ubuntu `apt` to linux `yum`.
+- GitHub → Hosts the source code repository
+- Jenkins (Ubuntu EC2) → Automates build, test, and deployment stages
+- Maven → Builds and packages the Java application
+- Apache Web Server → Hosts the deployed web application
+- Internet Access → Allows developers and users to access Jenkins and the web app
 
-## Environment variable
-### `In steps 1` `INSTALL JAVA SDK` 
+## 🧩 Tools & Technologies
+
+- AWS EC2 (Ubuntu 22.04)
+- Jenkins
+- GitHub
+- Maven
+- Apache HTTP Server
+- Java (JDK 11+)
+- Firewall Configuration / Security Groups
+
+## 🪜 Implementation Steps Summary
+### 1. Launch EC2 Instance on AWS The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
+
+
+### 2. Deploy Jenkin in ubuntu ec2 instance. `NB` In case we are working with Linux-ec2-instance we change the package manager of ubuntu `apt` to linux `yum`.
+#### `In steps 1` `INSTALL JAVA SDK` 
 1. We first need to update the OS
 ```
 sudo apt update
@@ -19,12 +38,12 @@ sudo apt update
 sudo apt install java-17-amazon-corretto-devel -y
 
 ```
-3. Verified of the java package was succesfully install 
+3. Verified if the java package was succesfully install 
 ```
 java -version
 
 ```
-### `In steps 2`  `ADD JENKINS TO DEBIAN REPO`
+#### `In steps 2`  `ADD JENKINS TO DEBIAN REPO`
 1. We do this by using the Long term support release 
 ```
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -38,7 +57,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 ```
-### `In steps 2`  `ADD JENKINS TO Red Hat package.`
+#### `In steps 3`  `ADD JENKINS TO Red Hat package.`
 1. Install Jenkins on an Amazon Linux 2 AMI EC2 instance using the [official guide](https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos).
 ```
 sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
@@ -49,7 +68,7 @@ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 ```
 sudo yum install jenkins
 ```
-### `In steps 3` `INSTALL JENKINS`
+#### `In steps 4` `INSTALL JENKINS`
 1. We first update the libriaries 
 ```
 sudo apt-get update
@@ -65,13 +84,18 @@ sudo apt-get install jenkins -y
 sudo systemctl status jenkins
 
 ```
-4. start jenkins `enable` allow you to state the service automatically when the system bot up or when you bot up the system 
+4. Retrieve admin password: `DON'T FORGET TO COPY AND SAVE THE ADMIN PASSWORD`
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+```
+5. start jenkins `enable` allow you to state the service automatically when the system bot up or when you bot up the system 
 ```
 sudo systemctl enable jenkins
 
 ```
 
-### `In steps 3` `ENABLE PORT 8080 ON HOST FIREWALL`
+#### `In steps 5` `ENABLE PORT 8080 ON HOST FIREWALL`
 1. We first update the libriaries. `ufw` this is a virtual firewall on ubuntu instance 
 ```
 sudo ufw enable -y
@@ -87,6 +111,8 @@ sudo ufw allow 8080
 sudo ufw allow openSSH
 
 ```
+
+
 
 ## Author
 FOKOUE THOMAS 
