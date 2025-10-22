@@ -134,13 +134,13 @@ http://<EC2-Public-IP>:8080
 
 ### 4. Let create our first jenkins job that display `Hello World!` 
 1. click on `New Item`(That means i would like to create a job)
-2. Enter an item name `my-first-jenkins-job` and press `OK`
+2. Enter an item name `my-first-jenkins-job` select an item type `Freestyle project` and press `OK`
 3. Click on the newly created job `my-first-jenkins-job`
 4. Go to `Configure` add a `description` go down to `Build Steps` and select `Execute shell` and add what you whan to build e.g `echo Hello World!`
 5. Save and run your build by clicking on `Build Now`
 6. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
 
-![Alt text](images/jenkins-webpage.png)
+![Alt text](images/my-first-jenkins-job.png)
 
 
 
