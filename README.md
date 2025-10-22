@@ -1,18 +1,24 @@
 # Deploy-Jenkins-on-Ubuntu-EC2-Instance
-This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS and configure it to automate a CI/CD pipeline integrating GitHub, Maven, and Apache Web Server.
+This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS and configure it to automate a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 
-### 📸 Project Diagram "JENLINS ARCHITECTURE" 
-![Alt text](images/jenkins-architecture.gif)
+### 📸 Project Diagram "JENKINS ARCHITECTURE" 
+![Alt text](images/jenkins-architecture1.png)
 
-The pipeline fetches source code from GitHub, builds the application using Maven, and deploys it automatically to an Apache web server accessible over the Internet. This setup simulates a real-world DevOps pipeline for continuous integration and delivery using Jenkins.
 
+In this project, we’ll build a complete CI/CD pipeline using Jenkins, GitHub, and Docker Hub. Every time we push code to GitHub, Jenkins will automatically:
+
+- Pull the latest changes
+- Build a new Docker image
+- Tag and publish it to Docker Hub
+
+This workflow is a real-world DevOps use case that automates container builds and image publishing — a fundamental skill for any DevOps Engineer or Cloud Developer.
 
 ## ⚙️ Architecture Summary
 
 - GitHub → Hosts the source code repository
 - Jenkins (Ubuntu EC2) → Automates build, test, and deployment stages
-- Maven → Builds and packages the Java application
-- Apache Web Server → Hosts the deployed web application
+- Docker → Containerization
+- Docker Hub → Image registry
 - Internet Access → Allows developers and users to access Jenkins and the web app
 
 ## 🧩 Tools & Technologies
@@ -20,8 +26,8 @@ The pipeline fetches source code from GitHub, builds the application using Maven
 - AWS EC2 (Ubuntu 22.04)
 - Jenkins
 - GitHub
-- Maven
-- Apache HTTP Server
+- Docker
+- Docker Hub
 - Java (JDK 11+)
 - Firewall Configuration / Security Groups
 
