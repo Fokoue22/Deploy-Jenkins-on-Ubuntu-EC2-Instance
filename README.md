@@ -1,7 +1,7 @@
 # Deploy-Jenkins-on-Ubuntu-EC2-Instance
 This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS and configure it to automate a CI/CD pipeline integrating GitHub, Maven, and Apache Web Server.
 
-### 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
+### 📸 Project Diagram "JENLINS ARCHITECTURE" 
 ![Alt text](images/jenkins-architecture.gif)
 
 The pipeline fetches source code from GitHub, builds the application using Maven, and deploys it automatically to an Apache web server accessible over the Internet. This setup simulates a real-world DevOps pipeline for continuous integration and delivery using Jenkins.
@@ -27,50 +27,51 @@ The pipeline fetches source code from GitHub, builds the application using Maven
 
 ## 🪜 Implementation Steps Summary
 ### 1. Launch EC2 Instance on AWS The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
-
+![Alt text](images/ubuntu-ec2.png)
 
 ### 2. Deploy Jenkin in ubuntu ec2 instance. `NB` In case we are working with Linux-ec2-instance we change the package manager of ubuntu `apt` to linux `yum`.
 #### `In steps 1` `INSTALL JAVA SDK` 
-1. We first need to update the OS
+1. Take up our privilage. The first command for ubuntu and the second for linux and verify if java is install
+```
+sudo su - ubuntu
+```
+```
+sudo su - ec2-user
+```
+```
+java --version
+```
+1. We need to update the OS
 ```
 sudo apt update
 
 ```
 2. Then we install java package 
 ```
-sudo apt install java-17-amazon-corretto-devel -y
+sudo apt install fontconfig openjdk-21-jre
 
 ```
 3. Verified if the java package was succesfully install 
 ```
-java -version
+java --version
 
 ```
+![Alt text](images/java-install.png)
+
 #### `In steps 2`  `ADD JENKINS TO DEBIAN REPO`
 1. We do this by using the Long term support release 
 ```
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 
-```
-2. 
+``` 
 ```
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 ```
-#### `In steps 3`  `ADD JENKINS TO Red Hat package.`
-1. Install Jenkins on an Amazon Linux 2 AMI EC2 instance using the [official guide](https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos).
-```
-sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
-```
-```
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-```
-```
-sudo yum install jenkins
-```
+
 #### `In steps 4` `INSTALL JENKINS`
 1. We first update the libriaries 
 ```
@@ -82,6 +83,8 @@ sudo apt-get update
 sudo apt-get install jenkins -y
 
 ```
+![Alt text](images/jenkins-install.png)
+
 3. This command will check if jenkins has been install and working `DON'T FORGET TO COPY AND SAVE THE ADMIN PASSWORD` It may also be found  `/var/lib/jenkins/secrets/initialAdminPassword`
 ```
 sudo systemctl status jenkins
