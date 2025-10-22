@@ -104,7 +104,7 @@ sudo systemctl enable jenkins
 #### `In steps 5` `ENABLE PORT 8080 ON HOST FIREWALL`
 1. We first update the libriaries. `ufw` this is a virtual firewall on ubuntu instance 
 ```
-sudo ufw enable -y
+sudo ufw enable
 
 ```
 2. Then we allow port `8080`. This will allowed all incomming requese coming from this port. We do this because by default http run on port 80 while jenkins on port 8080. So we must always indicate the port of jenkins if not it will not work   
@@ -117,6 +117,27 @@ sudo ufw allow 8080
 sudo ufw allow openSSH
 
 ```
+![Alt text](images/verify-jenkins-installation.png)
+
+### 3. Access jenkins webpage with your Public Ips address of the ec2 server.  
+```
+http://<EC2-Public-IP>:8080
+```
+![Alt text](images/jenkins-webpage.png)
+
+- Place the password generate in steps above
+- Install suggested plugins
+- create your Admin User and password or skip and continue as admin
+
+![Alt text](images/jenkins-admin-website.png)
+
+
+
+
+
+
+
+
 
 
 
