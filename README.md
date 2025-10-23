@@ -207,13 +207,13 @@ sudo apt-get update
 ```
  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-- Start the Docker service.
-```
- sudo service docker start
-```
-- Add the ubuntu to the docker group so that you can run Docker commands without using sudo.
+- Add the ubuntu and Jenkins to the docker group so that you can run Docker commands without using sudo.
 ```
  sudo usermod -a -G docker ubuntu
+```
+- After running the command above logout and login again for the permission to be succesfull.
+```
+ exit
 ```
 - This command keep our docker up at all time. No matter if our instance is stop docker will still be active in this server. 
 ```
@@ -224,6 +224,7 @@ sudo apt-get update
 ```
  docker ps
 ```
+![Alt text](images/install-docker.png)
 
 ## Author
 FOKOUE THOMAS 
