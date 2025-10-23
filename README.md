@@ -164,13 +164,13 @@ git pull https://github.com/Fokoue22/docker-and-jenkins-integration.git
 
 ![Alt text](images/git-cred-jenkins.png)
 
-### 6. Let look for a Plugin that will help us to publish a docker image. 
+### 7. Let look for a Plugin that will help us to publish a docker image. 
 1. Go to `Manage Jenkins` click on `Plugins` then go to `Available Plugins`
 2. On Available Plugins click on the search bar and type `CloudBees Docker Build and Publish` Select the Plugins and Install 
 4. Go to `Install Plugins` to see the docker plugin that have been install  
 ![Alt text](images/install-plugins-jenkins.png)
 
-### 7. Now let Installed docker on our Ubuntu server in other for us to use the plugin install above linux server:
+### 8. Now let Installed docker on our Ubuntu server in other for us to use the plugin install above linux server:
 - Take up you privilage. the first command for ubuntu and the second for linux. 
 ```
 sudo su - ubuntu
@@ -219,12 +219,33 @@ sudo apt-get update
 ```
  sudo systemctl enable docker
 ```
-- Verify that the ubuntu can run Docker commands without using sudo.
-
+- Activate docker and verify that the ubuntu can run Docker commands without using sudo.
+```
+ sudo systemctl status docker
+```
 ```
  docker ps
 ```
 ![Alt text](images/install-docker.png)
+
+
+### 9. Create a Build Steps in Jenkins for Docker
+1. Go to our  a `New Item` with name `docker-image-build` created above
+2. Go down to `Build Steps` and chose `Docker Build and Publish` 
+3. On `Repository Name` add a repo-name present in your Docker Hub account. Add a `Tag e.g v2` leave everything default. Then add `Registry credentials` for your DockerHub account  
+4. After that on Branch change from master to `main`
+5. Save and run your build by clicking on `Build Now`
+6. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
+
+
+
+
+
+
+
+
+
+
 
 ## Author
 FOKOUE THOMAS 
