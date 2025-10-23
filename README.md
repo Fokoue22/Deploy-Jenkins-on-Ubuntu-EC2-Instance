@@ -211,15 +211,15 @@ sudo apt-get update
 ```
  sudo service docker start
 ```
-- Add the ec2-user to the docker group so that you can run Docker commands without using sudo.
+- Add the ubuntu to the docker group so that you can run Docker commands without using sudo.
 ```
- sudo usermod -a -G docker ec2-user
+ sudo usermod -a -G docker ubuntu
 ```
 - This command keep our docker up at all time. No matter if our instance is stop docker will still be active in this server. 
 ```
  sudo systemctl enable docker
 ```
-- Verify that the ec2-user can run Docker commands without using sudo.
+- Verify that the ubuntu can run Docker commands without using sudo.
 
 ```
  docker ps
