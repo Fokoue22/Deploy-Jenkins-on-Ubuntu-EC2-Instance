@@ -251,12 +251,12 @@ sudo apt-get update
 ```
  docker info
 ```
-4. Save and run your build by clicking on `Build Now`
-5. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
+5. Save and run your build by clicking on `Build Now`
+6. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
 
 
 
-### 9. Login to docker hub using ubuntu server.
+### 8. Login to docker hub using ubuntu server.
 ```
 docker login
 ```
