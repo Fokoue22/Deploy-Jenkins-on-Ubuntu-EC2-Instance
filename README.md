@@ -232,16 +232,35 @@ sudo apt-get update
 ### 9. Create a Build Steps in Jenkins for Docker
 1. Go to our  a `New Item` with name `docker-image-build` created above
 2. Go down to `Build Steps` and chose `Docker Build and Publish` 
-3. On `Repository Name` add a repo-name present in your Docker Hub account. Add a `Tag e.g v2` leave everything default. Then add `Registry credentials` for your DockerHub account  
-4. After that on Branch change from master to `main`
-5. Save and run your build by clicking on `Build Now`
-6. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
+3. On `Repository Name` add a repo-name present in your Docker Hub account. Add a `Tag e.g v2` leave everything default. Then add `Registry credentials` for your DockerHub account 
+![Alt text](images/docker-build.png)
+
+4. Before you save make sure to restart your Jenkins on your server. Then exit and login as jenkins 
+```
+ sudo systemctl start docker
+ sudo usermod -aG docker jenkins
+ sudo systemctl restart jenkins
+
+```
+```
+ exit
+```
+```
+ sudo su - jenkins
+```
+```
+ docker info
+```
+4. Save and run your build by clicking on `Build Now`
+5. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
 
 
 
-
-
-
+### 9. Login to docker hub using ubuntu server.
+```
+docker login
+```
+![Alt text](images/docker-login.png)
 
 
 
