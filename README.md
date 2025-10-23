@@ -148,12 +148,22 @@ http://<EC2-Public-IP>:8080
 
 ![Alt text](images/my-first-jenkins-job.png)
 
+### 5. Create a GitHub repository with index.html file and a Dockerfile. You can as well pull mu own repo. 
+```
+git pull https://github.com/Fokoue22/docker-and-jenkins-integration.git
+```
+![Alt text](images/repo-for-jenkins.png)
 
+### 6. Let setup our Git plugin on Jenkins. This is done to link our Jenkins with our repo created on Git
+1. Create a `New Item` with name `docker-image-build` select an item type `Freestyle project` and press `OK`
+3. Click on the newly created job `my-first-jenkins-job`
+4. Go to `Configure` add a `description`. Now go to `Source Code Management` click `Git`  filled all the blank space all 
+5. After that on Branch change from master to `main`
+6. Save and run your build by clicking on `Build Now`
+7. On your `Build History` on the left click on the first build "#2" and go to `Console Output` and you will see your result.
 
-
-
-
-
+Add public github repository location
+Setup branch to pull from
 
 
 ## Author
