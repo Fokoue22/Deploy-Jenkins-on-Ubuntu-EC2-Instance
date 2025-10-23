@@ -156,17 +156,58 @@ git pull https://github.com/Fokoue22/docker-and-jenkins-integration.git
 
 ### 6. Let setup our Git plugin on Jenkins. This is done to link our Jenkins with our repo created on Git
 1. Create a `New Item` with name `docker-image-build` select an item type `Freestyle project` and press `OK`
-3. Click on the newly created job `my-first-jenkins-job`
-4. Go to `Configure` add a `description`. Now go to `Source Code Management` click `Git`  filled all the blank space all 
-5. After that on Branch change from master to `main`
-6. Save and run your build by clicking on `Build Now`
-7. On your `Build History` on the left click on the first build "#2" and go to `Console Output` and you will see your result.
+2. Click on the newly created job `my-first-jenkins-job`
+3. Go to `Configure` add a `description`. Now go to `Source Code Management` click `Git`  filled all the blank space all 
+4. After that on Branch change from master to `main`
+5. Save and run your build by clicking on `Build Now`
+6. On your `Build History` on the left click on the first build "#1" and go to `Console Output` and you will see your result.
 
-![Alt text](images/git-cred-jenkins.png
-)
-Add public github repository location
-Setup branch to pull from
+![Alt text](images/git-cred-jenkins.png)
 
+### 6. Let look for a Plugin that will help us to publish a docker image. 
+1. Go to `Manage Jenkins` click on `Plugins` then go to `Available Plugins`
+2. On Available Plugins click on the search bar and type `CloudBees Docker Build and Publish` Select the Plugins and Install 
+4. Go to `Install Plugins` to see the docker plugin that have been install  
+![Alt text](images/install-plugins-jenkins.png)
+
+### 7. Now let Installed docker on our Ubuntu server in other for us to use the plugin install above linux server:
+- Take up you privilage. the first command for ubuntu and the second for linux. 
+```
+sudo su - ubuntu
+```
+```
+sudo su - ec2-user
+```
+- let verifie if docker is install 
+```
+ docker --version
+```
+- After the verification we notice docker is not install. So we need to go to the officail documentation [this page](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-docker.html) depending on our OS we follow the steps and install. For us is Installing Docker on Linux 
+- Update the installed packages and package cache on your instance.
+```
+ sudo yum update -y
+```
+- Install the most recent Docker Community Edition package
+```
+ sudo yum install -y docker
+```
+- Start the Docker service.
+```
+ sudo service docker start
+```
+- Add the ec2-user to the docker group so that you can run Docker commands without using sudo.
+```
+ sudo usermod -a -G docker ec2-user
+```
+- This command keep our docker up at all time. No matter if our instance is stop docker will still be active in this server. 
+```
+ sudo systemctl enable docker
+```
+- Verify that the ec2-user can run Docker commands without using sudo.
+
+```
+ docker ps
+```
 
 ## Author
 FOKOUE THOMAS 
