@@ -162,6 +162,8 @@ git pull https://github.com/Fokoue22/docker-and-jenkins-integration.git
 6. Save and run your build by clicking on `Build Now`
 7. On your `Build History` on the left click on the first build "#2" and go to `Console Output` and you will see your result.
 
+![Alt text](images/git-cred-jenkins.png
+)
 Add public github repository location
 Setup branch to pull from
 
