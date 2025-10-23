@@ -1,7 +1,7 @@
 # Deploy-Jenkins-on-Ubuntu-EC2-Instance
 This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS and configure it to automate a CI/CD pipeline using Jenkins, GitHub, and Docker Hub.
 
-### 📸 Project Diagram "JENKINS ARCHITECTURE" 
+## 📸 Project Diagram "JENKINS ARCHITECTURE" 
 ![Alt text](images/jenkins-architecture1.png)
 
 
@@ -47,17 +47,17 @@ sudo su - ec2-user
 ```
 java --version
 ```
-1. We need to update the OS
+2. We need to update the OS
 ```
 sudo apt update
 
 ```
-2. Then we install java package 
+3. Then we install java package 
 ```
 sudo apt install fontconfig openjdk-21-jre
 
 ```
-3. Verified if the java package was succesfully install 
+4. Verified if the java package was succesfully install 
 ```
 java --version
 
