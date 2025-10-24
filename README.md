@@ -278,11 +278,14 @@ docker login
 ```
   docker run -t -d -p 80:80 fokoue/jenkins_thomas_container:v2
 ```
+
+
+
 - Then open your browser and go to
 ```
-  http://localhost
+  http://<EC2-Public-IP>
 ```
-![Alt text](images/push-image-dockerhub.png)
+![Alt text](images/website-result.png)
 
 
 
