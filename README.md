@@ -256,14 +256,18 @@ sudo apt-get update
 
 
 
-### 8. Login to docker hub using ubuntu server.
+### 10. Login to docker hub using ubuntu server.
 ```
 docker login
 ```
 ![Alt text](images/docker-login.png)
 
+### 10. Succesful deploy our `docker-image-build`.
+![Alt text](images/jenkins-build-success1.png)
+![Alt text](images/jenkins-build-success2.png)
 
-
+### 10. Jenkins build and push our image to DockerHub.
+![Alt text](images/jenkins-build-success1.png)
 
 
 ## Author
