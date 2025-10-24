@@ -278,7 +278,7 @@ docker login
 ```
   docker run -t -d -p 80:80 fokoue/jenkins_thomas_container:v2
 ```
-
+![Alt text](images/run-images-in-ubuntuServer.png)
 
 
 - Then open your browser and go to
