@@ -262,12 +262,26 @@ docker login
 ```
 ![Alt text](images/docker-login.png)
 
-### 10. Succesful deploy our `docker-image-build`.
+### 11. Succesful deploy our `docker-image-build`.
 ![Alt text](images/jenkins-build-success1.png)
 ![Alt text](images/jenkins-build-success2.png)
 
-### 10. Jenkins build and push our image to DockerHub.
+### 12. Jenkins build and push our image to DockerHub.
 ![Alt text](images/push-image-dockerhub.png)
+
+### 13. Let build the image and run the conatainer just uploaded by jenkins in our DockerHub.
+- Build the image
+```
+  docker pull fokoue/jenkins_thomas_container:v2
+```
+- Run the container
+```
+  docker run -t -d -p 80:80 fokoue/jenkins_thomas_container:v2
+```
+- Then open your browser and go to
+
+![Alt text](images/push-image-dockerhub.png)
+
 
 
 ## Author
