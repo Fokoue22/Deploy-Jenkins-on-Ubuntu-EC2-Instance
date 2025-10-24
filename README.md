@@ -270,6 +270,10 @@ docker login
 ![Alt text](images/push-image-dockerhub.png)
 
 ### 13. Let build the image and run the conatainer just uploaded by jenkins in our DockerHub.
+- Make sur to be on your ubuntu server before running th command below
+```
+sudo su - ubuntu
+```
 - Build the image
 ```
   docker pull fokoue/jenkins_thomas_container:v2
