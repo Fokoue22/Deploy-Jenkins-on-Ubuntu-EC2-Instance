@@ -267,7 +267,7 @@ docker login
 ![Alt text](images/jenkins-build-success2.png)
 
 ### 10. Jenkins build and push our image to DockerHub.
-![Alt text](images/jenkins-build-success1.png)
+![Alt text](images/push-image-dockerhub.png)
 
 
 ## Author
