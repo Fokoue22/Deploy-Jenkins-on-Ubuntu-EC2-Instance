@@ -4,6 +4,8 @@ This project demonstrates how to deploy Jenkins on an Ubuntu EC2 instance in AWS
 ## 📸 Project Diagram "JENKINS ARCHITECTURE" 
 ![Alt text](images/jenkins-architecture1.png)
 
+![Alt text](images/github.png)
+
 
 In this project, we’ll build a complete CI/CD pipeline using Jenkins, GitHub, and Docker Hub. Every time we push code to GitHub, Jenkins will automatically:
 
